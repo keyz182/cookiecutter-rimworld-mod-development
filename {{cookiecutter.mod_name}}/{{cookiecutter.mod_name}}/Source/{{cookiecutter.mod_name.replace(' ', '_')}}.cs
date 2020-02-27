@@ -3,7 +3,7 @@ using System.Linq;
 using Verse;
 using RimWorld;
 using UnityEngine;
-{%if(cookiecutter.harmony != 'n')%}using Harmony;
+{%if(cookiecutter.harmony != 'n')%}using HarmonyLib;
 {%endif%}
 namespace {{cookiecutter.mod_name.replace(' ', '_')}}
 {
@@ -17,10 +17,10 @@ namespace {{cookiecutter.mod_name.replace(' ', '_')}}
 			GetSettings<Settings>();
 
 {%endif%}{%if(cookiecutter.harmony != 'n')%}#if DEBUG
-			HarmonyInstance.DEBUG = true;
+			Harmony.DEBUG = true;
 #endif
 
-			HarmonyInstance harmony = HarmonyInstance.Create("{{cookiecutter.author}}.rimworld.{{cookiecutter.mod_name.replace(' ', '_')}}.main");
+			Harmony harmony = new Harmony("{{cookiecutter.author}}.rimworld.{{cookiecutter.mod_name.replace(' ', '_')}}.main");
 {%if(cookiecutter.defOfWarn != 'n')%}
 			//Turn off DefOf warning since harmony patches trigger it.
 			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");
