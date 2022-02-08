@@ -7,10 +7,10 @@ using UnityEngine;
 {%endif%}
 namespace {{cookiecutter.mod_name.replace(' ', '_')}}
 {
-{%if(cookiecutter.settings != 'n')%}	public static Settings settings;
-{%endif%}	public class Mod : Verse.Mod
+	public class Mod : Verse.Mod
 	{
-		public Mod(ModContentPack content) : base(content)
+{%if(cookiecutter.settings != 'n')%}	public static Settings settings;
+{%endif%}		public Mod(ModContentPack content) : base(content)
 		{
 {%if(cookiecutter.helloWorld != 'n')%}			Log.Message("Hello world from {{cookiecutter.mod_name}}");
 
