@@ -20,22 +20,10 @@ namespace {{cookiecutter.mod_name.replace(' ', '_')}}
 			Harmony.DEBUG = true;
 #endif
 
-			Harmony harmony = new Harmony("{{cookiecutter.author}}.rimworld.{{cookiecutter.mod_name.replace(' ', '_')}}.main");
-{%if(cookiecutter.defOfWarn != 'n')%}
-			//Turn off DefOf warning since harmony patches trigger it.
-			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");
-			if (!harmony.GetPatchedMethods().Contains(DefOfHelperInfo))
-				harmony.Patch(DefOfHelperInfo, new HarmonyMethod(typeof(Mod), "EnsureInitializedInCtorPrefix"), null);
-{%endif%}			
+			Harmony harmony = new Harmony("{{cookiecutter.author}}.rimworld.{{cookiecutter.mod_name.replace(' ', '_')}}.main");	
 			harmony.PatchAll();
 {%endif%}		}
-{%if(cookiecutter.defOfWarn != 'n')%}
-		public static bool EnsureInitializedInCtorPrefix()
-		{
-			//No need to display this warning.
-			return false;
-		}
-{%endif%}{%if(cookiecutter.settings != 'n')%}
+{%if(cookiecutter.settings != 'n')%}
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
 			base.DoSettingsWindowContents(inRect);
