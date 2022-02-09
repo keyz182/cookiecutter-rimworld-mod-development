@@ -39,11 +39,7 @@
       <HintPath>..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-{%if(cookiecutter.harmony != 'n')%}    <Reference Include="0Harmony, Version=2.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Lib.Harmony.2.1.0\lib\net472\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-{%endif%}    <Reference Include="System" />
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,10 +53,10 @@
   <ItemGroup>
     <Compile Include="**\*.cs" Exclude="obj\**\*" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+{%if(cookiecutter.harmony != 'n')%}  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime"/>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+{%endif%}  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <StartAction>Program</StartAction>
     <StartProgram>$(SolutionDir)..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}.exe</StartProgram>
