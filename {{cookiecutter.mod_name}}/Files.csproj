@@ -12,7 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ReleaseFiles Include="About\**;Common\**;{{cookiecutter.mod_ver}}\**;loadFolders.xml"
-                  Exclude="About\About-Debug.xml;About\About-Release.xml;About\About.xml;{{cookiecutter.mod_ver}}\Source" />
+                  Exclude="About\About-Debug.xml;About\About-Release.xml;About\About.xml;{{cookiecutter.mod_ver}}\Source\**" />
     <AboutFiles Include="About\About-Debug.xml;About\About-Release.xml" />
   </ItemGroup>
   <ItemGroup>
