@@ -1,5 +1,5 @@
 {
-		"dummy":"Okay!",
+	"dummy":"Okay!",
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
@@ -7,9 +7,10 @@
     "create_empty_definitions": "n",
     "rw64": "y",
     "harmony": "y",
-		"helloWorld": "n",
-		"settings": "n",
-		"debugLog": "n",
+    "helloWorld": "n",
+    "settings": "n",
+    "debugLog": "n",
+    "rider": "y",
     
     "_visual_studio": {
         "dummy": {
@@ -17,11 +18,11 @@
         },
         "mod_name": {
             "label": "Mod name",
-            "description": "The name of your mod (cannot easily change later)"
+            "description": "The name of your mod and the assembly (cannot easily change later)"
         },
         "author": {
             "label": "Author",
-            "description": "Use your Steam username for automatic linking of mod to profile (can change later in About-Release.xml)"
+            "description": "Use your Steam profile name for automatic linking of mod to profile (can change later in About-Release.xml)"
         },
         "in_game_description" : {
             "label": "Mod Description",
@@ -41,50 +42,57 @@
             "description": "Are you using RimWorldWin64.exe or not to develop?",
             "selector": "yesno"
         },
-				"harmony":{
+        "harmony":{
             "label": "Include Harmony library",
             "description": "A useful library to safely patch game code. Include it here, unless your mod will depend on HugsLib, or doesn't need to patch.",
             "selector": "yesno"
         },
-				"helloWorld":{
+        "helloWorld":{
             "label": "Log Hello World on start",
             "description": "A sample so you know your mod is loaded: Do delete this later.",
             "selector": "yesno"
         },
-				"settings":{
+        "settings":{
             "label": "Mod Settings",
             "description": "Include extra code and files to use built-in Mod Settings",
             "selector": "yesno"
         },
-				"debugLog":{
+        "debugLog":{
             "label": "Log.Message Debug only",
             "description": "This mod defines its own Log.Message, so Logging uses that instead of Verse.Log.Message. This method is disabled in release builds, so you can keep Log.Message in code, and it never spams users",
             "selector": "yesno"
+        },
+        "rider":{
+          "label": "Add Jetbrains Rider IDE config",
+          "description": "Creates extra config for Jetbrains Rider as a fast track for developers that prefer Rider to Visual Studio or other IDEs",
+          "selector": "yesno"
         }
     },
 		
-		"_visual_studio_post_cmds": [
-			{
-					"name": "Tools.Shell",
-					"args": ["MsBuild.exe",
-							"{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
-							"/t:Build",
-							"/p:Configuration=Release",
-							"/verbosity:minimal"
-					]
-			},
-			{
-					"name": "Tools.Shell",
-					"args": ["MsBuild.exe",
-							"{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
-							"/t:Build",
-							"/p:Configuration=Debug",
-							"/verbosity:minimal"
-					]
-			},
-			{
-					"name": "File.OpenProject",
-					"args": ["{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln"]
-			}
+    "_visual_studio_post_cmds": [
+        {
+            "name": "Tools.Shell",
+            "args": [
+              "MsBuild.exe",
+              "{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
+              "/t:Build",
+              "/p:Configuration=Release",
+              "/verbosity:minimal"
+            ]
+        },
+        {
+            "name": "Tools.Shell",
+            "args": [
+              "MsBuild.exe",
+              "{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
+              "/t:Build",
+              "/p:Configuration=Debug",
+              "/verbosity:minimal"
+            ]
+        },
+        {
+            "name": "File.OpenProject",
+            "args": ["{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln"]
+        }
 	]
 }

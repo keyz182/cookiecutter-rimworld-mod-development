@@ -28,6 +28,7 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 ##### Usage (inside Rimworld/Mods folder)
 1. `cookiecutter gh:n-fisher/cookiecutter-rimworld-mod-development`
 2. `[Answer the prompts]`
+   1. Note that when it asks you `_visual_studio` you must respond `{}`
 3. Open the folder you just created and double-click the `ModName.sln` file
 4. In the Solution Explorer view on the right, right click `RimWorldWin` and click `Set as Startup Project`
     
@@ -103,3 +104,12 @@ This cookiecutter setup takes full advantage of VS debug/release versions
 ### Accident Forgiveness
 - Edits in either generated temporary About.xml file (release or debug) won't get overwritten as long as the About-$Version.xml file it was copied from is not updated
 - Items edited in the Release directory will not be overwritten with older data from the Debug/Dev directory
+
+# Issues
+### The imported project "C:\Program Files (x86)\...\Microsoft.CSharp.Core.targets" was not found
+If you're not using Visual Studio you may need to tell the project where your MS Build actually is.
+- You can download MSBuild from [Microsoft](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-developer-pack-offline-installer)
+- It will already be in your Rider directory and can be found under File -> Settings -> Build, Execution, Deployment -> Toolset and Build -> MSBuild Version
+
+### Cannot Resolve Symbol HarmonyLib (`using HarmonyLib` is red)
+Run `dotnet restore` on the .csproj file for your code then try re-doing the nuget restore.

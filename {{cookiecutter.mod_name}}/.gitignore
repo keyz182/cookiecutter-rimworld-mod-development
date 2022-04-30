@@ -246,7 +246,7 @@ paket-files/
 .fake/
 
 # JetBrains Rider
-.idea/
+{%if(cookiecutter.rider != 'n')%}.idea{%endif%}/
 *.sln.iml
 
 # CodeRush
