@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -46,7 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -59,6 +59,6 @@
 {%endif%}  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <StartAction>Program</StartAction>
-    <StartProgram>$(SolutionDir)..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}.exe</StartProgram>
+    <StartProgram>$(SolutionDir)..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}.exe</StartProgram>
   </PropertyGroup>
 </Project>

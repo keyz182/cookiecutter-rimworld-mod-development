@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<loadFolders>
+	<v{{cookiecutter.mod_ver}}>
+		<li>Common</li>
+		<li>{{cookiecutter.mod_ver}}</li>
+	</v{{cookiecutter.mod_ver}}>
+</loadFolders>
