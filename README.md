@@ -49,7 +49,7 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 1. Open Visual Studio
 2. `File -> New -> From Cookiecutter...`
 3. Search for `rimworld`
-4. Double-click `n-fisher/cookiecutter-rimworld-mod-development`
+4. Double-click `feldoh/cookiecutter-rimworld-mod-development`
 5. Change the Template Options:
    - `Create To` => `[...]/RimWorld/Mods`
    - `Mod name`
