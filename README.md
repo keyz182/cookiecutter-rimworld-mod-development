@@ -2,20 +2,16 @@
 A cookiecutter project that builds the basic Rimworld mod development file structure and sets up a sane build environment.
 
 # Table of Contents  
-- [Install/Setup](#installsetup) 
-  - [Windows Command Prompt](#windows-command-prompt)  
-    - [Required Programs](#required-programs)  
-    - [Usage](#usage-inside-rimworldmods-folder)  
-  - [Microsoft Visual Studio Integration](#microsoft-visual-studio-integration)  
-    - [Required Programs](#required-programs-1)  
-    - [Usage](#usage)  
-- [Basic Features](#basic-features) 
-  - [Folder Structure](#folder-structure)  
-  - [VS Setup Automation](#vs-setup-automation)  
-- [Advanced Features](#advanced-features) 
-  - [Debug/Release Versioning](#debugrelease-versioning)  
-  - [Optional Debug Save Profile](#optional-debug-save-profile)  
-  - [Accident Forgiveness :tm:](#accident-forgiveness)  
+- [Install/Setup](#installsetup)
+  - [Windows Command Prompt](#windows-command-prompt)
+    - [Required Programs](#required-programs)
+    - [Usage](#usage-inside-rimworldmods-folder)
+  - [Microsoft Visual Studio Integration](#microsoft-visual-studio-integration)
+    - [Required Programs](#required-programs-1)
+    - [Usage](#usage)
+- [Basic Features](#basic-features)
+  - [Folder Structure](#folder-structure)
+  - [VS Setup Automation](#vs-setup-automation)
 
 
 # Install/Setup
@@ -35,7 +31,7 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 ### Microsoft Visual Studio Integration
 ##### Required Programs
 
-- [Visual Studio Community 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio Community](https://www.visualstudio.com/downloads/)
 
 ##### Install (if no `File -> New -> From Cookiecutter...` option is available)
 1. Open up VS Installer (In Visual Studio -> Tools -> Gets Tools and Features)
@@ -86,24 +82,6 @@ This cookiecutter builds the entire standard mod folder structure, with empty fo
 - Clears the default set trace constant
 - Creates a VS solution with correctly defined paths
 - Clicking `Start ▶️` will preform the designated build sequence and start Rimworld.exe tied to a Visual Studio resource monitor.
-
-# Advanced Features
-### Debug/Release Versioning
-This cookiecutter setup takes full advantage of VS debug/release versions
-- Debug mode
-  - About-Debug.xml contains instructions on editing About-Release.xml and has a separate title for easy recognition from the Release version 
-  - Building creates an About.xml from About-Debug.xml with a "- Dev Build" tag to be easily distinguishable in the mod list
-  - The resulting .dll is placed in "{{cookiecutter.mod_name}}/Assemblies"
-- Release mode
-  - About-Release.xml is copied to "{{cookiecutter.mod_name}} - Release/About/About.xml" and does not include the "- Dev Mode" tag in its title
-  - Building creates or updates the Release version of the mod. Solely the essential files are copied into a separate Release mod folder for a clean version of the mod
-  
-### Optional Debug Save Profile
-<Temporarily removed>
-  
-### Accident Forgiveness
-- Edits in either generated temporary About.xml file (release or debug) won't get overwritten as long as the About-$Version.xml file it was copied from is not updated
-- Items edited in the Release directory will not be overwritten with older data from the Debug/Dev directory
 
 # Issues
 ### The imported project "C:\Program Files (x86)\...\Microsoft.CSharp.Core.targets" was not found

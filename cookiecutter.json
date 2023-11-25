@@ -3,7 +3,7 @@
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
-    "mod_ver": ["1.0", "1.1","1.2","1.3","1.4","1.5","2.0"],
+    "mod_ver": ["1.4","1.5","1.6","1.7","2.0"],
     "create_empty_definitions": "n",
     "rw64": "y",
     "harmony": "y",
@@ -11,6 +11,9 @@
     "settings": "n",
     "debugLog": "n",
     "rider": "y",
+    "compatibility": "n",
+    "defOf": "y",
+    "license": ["MIT", "CC-BY", "Other", "None"],
     
     "_visual_studio": {
         "dummy": {
@@ -22,15 +25,15 @@
         },
         "author": {
             "label": "Author",
-            "description": "Use your Steam profile name for automatic linking of mod to profile (can change later in About-Release.xml)"
+            "description": "Use your Steam profile name for automatic linking of mod to profile (can change later in About.xml)"
         },
         "in_game_description" : {
             "label": "Mod Description",
-            "description": "The description of the mod as it appears in-game (can change later in About-Release.xml)"
+            "description": "The description of the mod as it appears in-game (can change later in About.xml)"
         },
         "mod_ver" : {
             "label": "Mod Version",
-            "description": "The version of Rimworld this mod is for (default:1.0)"
+            "description": "The version of Rimworld this mod is for (default:1.4)"
         },
         "create_empty_definitions": {
             "label": "Create blank XML definition files",
@@ -66,6 +69,21 @@
           "label": "Add Jetbrains Rider IDE config",
           "description": "Creates extra config for Jetbrains Rider as a fast track for developers that prefer Rider to Visual Studio or other IDEs",
           "selector": "yesno"
+        },
+        "compatibility":{
+            "label": "Add extra folders for compatibility with other mods",
+            "description": "Creates extra folders and build steps for compatibility files for other mods.",
+            "selector": "yesno"
+        },
+        "defOf":{
+            "label": "Include a DefOf class",
+            "description": "Creates a DefOf class for your mod, so you can use DefOfs in your code, like MyDefOf.Something.",
+            "selector": "yesno"
+        },
+        "license":{
+            "label": "License",
+            "description": "Choose a license for your mod. You can change this later. Checkout https://choosealicense.com/ for more info.",
+            "selector": "license"
         }
     },
 		

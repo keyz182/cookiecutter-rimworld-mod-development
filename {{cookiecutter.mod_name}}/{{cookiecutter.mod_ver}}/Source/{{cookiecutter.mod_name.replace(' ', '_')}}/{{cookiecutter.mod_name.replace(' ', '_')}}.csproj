@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)/$(MSBuildToolsVersion)/Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)/$(MSBuildToolsVersion)/Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,16 +9,17 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>{{cookiecutter.mod_name.replace(' ', '_')}}</RootNamespace>
     <AssemblyName>{{cookiecutter.mod_name.replace(' ', '_')}}</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AllowedReferenceRelatedFileExtensions>None</AllowedReferenceRelatedFileExtensions>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Assemblies\</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <OutputPath>../../Assemblies/</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -27,8 +28,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\{{cookiecutter.mod_name}} - Release\Assemblies\</OutputPath>
-    <DefineConstants></DefineConstants>
+    <OutputPath>../../Assemblies/</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -36,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>../../../../../RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data/Managed/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -46,19 +47,51 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>../../../../../RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>../../../../../RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**\*" />
+    <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+      <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-{%if(cookiecutter.harmony != 'n')%}  <ItemGroup>
+  <ItemGroup>
+    <Compile Include="**/*.cs" Exclude="obj/**/*;bin/**/*" />
+  </ItemGroup>
+  {%if(cookiecutter.harmony != 'n')%}  <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime"/>
   </ItemGroup>
-{%endif%}  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  {%endif%}  <Import Project="$(MSBuildToolsPath)/Microsoft.CSharp.targets" />
+  <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.4-*"/>
+  </ItemGroup>
   <PropertyGroup>
     <StartAction>Program</StartAction>
-    <StartProgram>$(SolutionDir)..\..\..\..\RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}.exe</StartProgram>
+    <StartProgram>$(SolutionDir)../../../../RimWorldWin{%if(cookiecutter.rw64 != 'n')%}64{%endif%}.exe</StartProgram>
   </PropertyGroup>
+  <ItemGroup>
+    <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
+    <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~"/>
+    <CommonFiles Include="../../../Common/**" />
+    {%if(cookiecutter.compatibility != 'n')%}<CompatibilityFiles Include="../../../Compatibility/**" />
+    {%endif%}
+    <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+    <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
+    <Delete Condition="Exists('../../../{{cookiecutter.mod_name.replace(' ', '_')}}.zip')" Files="../../../{{cookiecutter.mod_name.replace(' ', '_')}}.zip" />
+    <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    {%if(cookiecutter.compatibility != 'n')%}<Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    {%endif%}
+    <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" />
+    <ZipDirectory DestinationFile="../../../{{cookiecutter.mod_name.replace(' ', '_')}}.zip" SourceDirectory="../../../Release" />
+  </Target>
 </Project>

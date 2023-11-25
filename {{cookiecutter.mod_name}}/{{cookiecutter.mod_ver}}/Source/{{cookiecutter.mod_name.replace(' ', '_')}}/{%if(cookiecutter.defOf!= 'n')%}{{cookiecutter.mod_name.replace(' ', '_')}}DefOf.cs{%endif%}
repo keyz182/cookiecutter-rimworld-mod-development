@@ -1,0 +1,14 @@
+﻿using RimWorld;
+using Verse;
+
+namespace {{cookiecutter.mod_name.replace(' ', '_')}};
+
+[DefOf]
+public static class {{cookiecutter.mod_name.replace(' ', '_')}}DefOf
+{
+    // Remember to annotate any Defs that require a DLC as needed e.g.
+    // [MayRequireBiotech]
+    // public static GeneDef YourPrefix_YourGeneDefName;
+    
+    static {{cookiecutter.mod_name.replace(' ', '_')}}DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof({{cookiecutter.mod_name.replace(' ', '_')}}DefOf));
+}
