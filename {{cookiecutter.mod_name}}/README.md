@@ -5,8 +5,28 @@
 </p>
 
 # Please Remember to replace the YOUR_WORKSHOP_ITEM_ID placeholder once you upload your mod and have an id and remove this line.
+# After you've uploaded it, Rimworld will add a PublishedFileId.txt in your About.xml, remeber to commit it!
+# When making your Steam Workshop description you may find the [Text formatting reference sheet](https://steamcommunity.com/comment/Recommendation/formattinghelp) useful
 
-# {{cookiecutter.mod_name.replace(' ', '_')}}
+# Example Steam Workshop Template
+```
+[h1]{{cookiecutter.mod_name}}[/h1]
+
+{{cookiecutter.in_game_description}}
+
+[h2]Disclaimer[/h2]
+Portions of the materials used to create this content/mod are trademarks and/or copyrighted works of Ludeon Studios Inc. All rights reserved by Ludeon. This content/mod is not official and is not endorsed by Ludeon.
+
+[h2]Thanks[/h2]
+[list]
+[*]Ludeon for the Game[/*]
+[*]Marnador for the [url=https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf]Rimworld Font[/url][/*]
+[/list]
+
+[url=https://github.com/{{cookiecutter.author}}/{{cookiecutter.mod_name.replace(' ', '-')}}][img]https://img.shields.io/static/v1?label={{cookiecutter.mod_name.replace(' ', '%20')}}&message=Fork%20me%20on%20github&color=d2e885&logo=github[/img][/url]
+```
+
+# {{cookiecutter.mod_name}}
 
 {{cookiecutter.in_game_description}}
 
@@ -15,3 +35,4 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 
 ## Thanks
 * Ludeon for the Game
+* Marnador for the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf)

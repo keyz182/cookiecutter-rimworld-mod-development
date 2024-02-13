@@ -2,6 +2,7 @@
 <loadFolders>
 	<v{{cookiecutter.mod_ver}}>
 		<li>Common</li>
-		<li>{{cookiecutter.mod_ver}}</li>
+		<li>{{cookiecutter.mod_ver}}</li>{%if(cookiecutter.debugLog != 'n')%}
+		<li IfModActive="Ludeon.RimWorld.Royalty">Compatibility/Ludeon.RimWorld.Royalty</li>{%endif%}
 	</v{{cookiecutter.mod_ver}}>
 </loadFolders>

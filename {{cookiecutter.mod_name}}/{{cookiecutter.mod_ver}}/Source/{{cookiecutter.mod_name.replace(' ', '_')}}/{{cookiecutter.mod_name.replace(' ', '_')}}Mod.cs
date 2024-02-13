@@ -4,7 +4,7 @@ using UnityEngine;
 {%endif%}
 namespace {{cookiecutter.mod_name.replace(' ', '_')}};
 
-public class {{cookiecutter.mod_name.replace(' ', '_')}}Mod : Verse.Mod
+public class {{cookiecutter.mod_name.replace(' ', '_')}}Mod : Mod
 {
 {%if(cookiecutter.settings != 'n')%}    public static Settings settings;
 {%endif%}
@@ -14,11 +14,9 @@ public class {{cookiecutter.mod_name.replace(' ', '_')}}Mod : Verse.Mod
 {% endif %}{%if(cookiecutter.settings != 'n')%}
         // initialize settings
         settings = GetSettings<Settings>();
-
 {%endif%}{%if(cookiecutter.harmony != 'n')%}#if DEBUG
         Harmony.DEBUG = true;
 #endif
-
         Harmony harmony = new Harmony("{{cookiecutter.author}}.rimworld.{{cookiecutter.mod_name.replace(' ', '_')}}.main");	
         harmony.PatchAll();{%endif%}
     }
@@ -31,6 +29,6 @@ public class {{cookiecutter.mod_name.replace(' ', '_')}}Mod : Verse.Mod
 
     public override string SettingsCategory()
     {
-        return "{{cookiecutter.mod_name}}";
+        return "{{cookiecutter.mod_name}}_SettingsCategory".Translate();
     }
 {% endif %}}

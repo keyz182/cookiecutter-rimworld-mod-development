@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <{{cookiecutter.mod_name.replace(' ', '_')}}_SettingsCategory>{{cookiecutter.mod_name}}</{{cookiecutter.mod_name.replace(' ', '_')}}_SettingsCategory>
+    <{{cookiecutter.mod_name.replace(' ', '_')}}_Settings_SettingName>Some Setting</{{cookiecutter.mod_name.replace(' ', '_')}}_Settings_SettingName>
+</LanguageData>

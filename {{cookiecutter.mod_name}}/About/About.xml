@@ -16,10 +16,12 @@
             <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
         </li>
     </modDependencies>
+{%endif%}
     <loadAfter>
+        {%if(cookiecutter.harmony != 'n')%}<li>brrainz.harmony</li>{%endif%}
         <li>Ludeon.RimWorld</li>
         <li>Ludeon.RimWorld.Ideology</li>
         <li>Ludeon.RimWorld.Royalty</li>
         <li>Ludeon.RimWorld.Biotech</li>
     </loadAfter>
-{%endif%}</ModMetaData>
+</ModMetaData>
