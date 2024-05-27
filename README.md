@@ -60,21 +60,40 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 This cookiecutter builds the entire standard mod folder structure, with empty folders as the default. `namespace_name` is automatically calculated.
 - {{cookiecutter.mod_name}}
   - About
-    - About-Debug.xml
-    - About-Release.xml
+    - About.xml
     - Preview.png
-  - Assemblies
-  - Defs
-  - Languages
-  - Patches
-  - Sounds
-  - Source
-    - Properties
-      - AssemblyInfo.cs
-    - `namespace_name`.cs
-    - `namespace_name`.csproj
-  - Textures
-  - `namespace_name`.sln
+  - 1.X
+    - Assemblies
+    - Defs
+    - Patches
+    - Source
+      - `namespace_name`
+        - Properties
+          - AssemblyInfo.cs
+        - Settings.cs
+        - `namespace_nameMod.cs`
+        - `namespace_nameDefOf.cs`
+        - `namespace_name.csproj`
+      - `namespace_name.sln`
+  - Common
+    - Languages
+      - English
+        - Keyed
+          - `namespace_name_Misc_Gameplay.xml`
+    - Sounds
+    - Textures
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .gitattributes
+  - .editorconfig
+
+Note that samples demonstrating use of MayRequire and Loadfolders use Royalty as an example, simply swap this out as you need.
+
+### Preview images
+A preview image Asset is provided as a [Krita file](Assets/Preview.kra) you may wish to use [Krita](https://krita.org/) which is a free art tool or something else.
+The template provided uses the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf) from Marnador.
+Make sure to export as a png file and place the Preview.png in About/Preview.png
 
 ### VS Setup Automation
 - Links Rimworld and UnityEngine .dlls for importing in code
@@ -91,3 +110,7 @@ If you're not using Visual Studio you may need to tell the project where your MS
 
 ### Cannot Resolve Symbol HarmonyLib (`using HarmonyLib` is red)
 Run `dotnet restore` on the .csproj file for your code then try re-doing the nuget restore.
+
+# Thanks
+* alextd and n-fisher for the prior version of this template
+* Marnador for the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf)
