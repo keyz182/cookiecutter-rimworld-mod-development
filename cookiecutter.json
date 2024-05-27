@@ -3,7 +3,7 @@
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
-    "mod_ver": ["1.4","1.5","1.6","1.7","2.0"],
+    "mod_ver": ["1.5","1.6","1.7","2.0"],
     "create_empty_definitions": "n",
     "rw64": "y",
     "harmony": "y",
@@ -11,8 +11,9 @@
     "settings": "n",
     "debugLog": "n",
     "rider": "y",
-    "compatibility": "n",
+    "compat": "n",
     "defOf": "y",
+    "copyToSteam": "y",
     "license": ["MIT", "CC-BY", "Other", "None"],
     
     "_visual_studio": {
@@ -70,7 +71,7 @@
           "description": "Creates extra config for Jetbrains Rider as a fast track for developers that prefer Rider to Visual Studio or other IDEs",
           "selector": "yesno"
         },
-        "compatibility":{
+        "compat":{
             "label": "Add extra folders for compatibility with other mods",
             "description": "Creates extra folders and build steps for compatibility files for other mods.",
             "selector": "yesno"
@@ -78,6 +79,11 @@
         "defOf":{
             "label": "Include a DefOf class",
             "description": "Creates a DefOf class for your mod, so you can use DefOfs in your code, like MyDefOf.Something.",
+            "selector": "yesno"
+        },
+        "copyToSteam":{
+            "label": "Copy release to Steam local mods folder",
+            "description": "Copy release to Steam local mods folder if RIMWORLD_STEAM_MODS_PATH env var is set.",
             "selector": "yesno"
         },
         "license":{

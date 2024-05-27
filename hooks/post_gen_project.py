@@ -10,6 +10,9 @@ os.makedirs("Common/Languages", exist_ok=True)
 os.makedirs("Common/Sounds", exist_ok=True)
 os.makedirs("Common/Textures", exist_ok=True)
 
+if not "{{cookiecutter.compat}}" == "y":
+    shutil.rmtree("Compatibility", ignore_errors=True)
+
 # Check if git binary is available
 git_path = shutil.which('git')
 if git_path is not None:
