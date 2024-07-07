@@ -1,5 +1,4 @@
 {
-	"dummy":"Okay!",
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
@@ -17,9 +16,6 @@
     "license": ["MIT", "CC-BY", "Other", "None"],
     
     "_visual_studio": {
-        "dummy": {
-            "label": "\"Create To\" should be RimWorld/Mods"
-        },
         "mod_name": {
             "label": "Mod name",
             "description": "The name of your mod and the assembly (cannot easily change later)"
