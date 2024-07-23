@@ -1,6 +1,6 @@
 <p>
-  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=YOUR_WORKSHOP_ITEM_ID" alt="Steam Workshop Link">
-  <img src="https://img.shields.io/static/v1?label=Steam&message=Workshop&color=blue&logo=steam&link=https://steamcommunity.com/sharedfiles/filedetails/?id=YOUR_WORKSHOP_ITEM_ID"/>
+  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=YOUR_WORKSHOP_ITEM_ID">
+  <img alt="Steam Workshop Link" src="https://img.shields.io/static/v1?label=Steam&message=Workshop&color=blue&logo=steam&link=https://steamcommunity.com/sharedfiles/filedetails/?id=YOUR_WORKSHOP_ITEM_ID"/>
   </a>
 </p>
 
