@@ -1,4 +1,4 @@
-{%if(cookiecutter.continuity == 'Nominee')%}MIT License
+{%if(cookiecutter.continuity == 'Nominee')%}
 # Continuity Statement
 
 This repository is part of my legacy as an open source contributor. In the event of my death or long-term absence, I wish the following principles to be respected:

@@ -10,7 +10,7 @@ public class Settings : ModSettings
 
     public void DoWindowContents(Rect wrect)
     {
-        var options = new Listing_Standard();
+        Listing_Standard options = new();
         options.Begin(wrect);
         
         options.CheckboxLabeled("{{cookiecutter.mod_name}}_Settings_SettingName".Translate(), ref setting);
