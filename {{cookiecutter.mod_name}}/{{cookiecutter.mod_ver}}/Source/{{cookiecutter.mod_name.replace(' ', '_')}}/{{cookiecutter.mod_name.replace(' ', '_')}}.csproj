@@ -63,7 +63,7 @@
     <CommonFiles Include="../../../Common/**" />
     {%if(cookiecutter.compat != 'n')%}<CompatibilityFiles Include="../../../Compatibility/**" />
     {%endif%}
-    <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
+    <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md{%if(cookiecutter.continuity != 'None')%};../../../CONTINUITY.md{%endif%}" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
     <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

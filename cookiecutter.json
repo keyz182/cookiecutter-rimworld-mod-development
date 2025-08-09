@@ -3,7 +3,7 @@
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
-    "mod_ver": ["1.5","1.6","1.7","2.0"],
+    "mod_ver": ["1.6","1.7","2.0"],
     "create_empty_definitions": "n",
     "rw64": "y",
     "harmony": "y",
@@ -15,6 +15,7 @@
     "defOf": "y",
     "copyToSteam": "y",
     "license": ["MIT", "CC-BY", "Other", "None"],
+    "continuity": ["Nominee", "None"],
     
     "_visual_studio": {
         "dummy": {
@@ -34,7 +35,8 @@
         },
         "mod_ver" : {
             "label": "Mod Version",
-            "description": "The version of Rimworld this mod is for (default:1.4)"
+            "description": "The version of Rimworld this mod is for (default:1.6)",
+            "selector": "mod_ver"
         },
         "create_empty_definitions": {
             "label": "Create blank XML definition files",
@@ -90,6 +92,11 @@
             "label": "License",
             "description": "Choose a license for your mod. You can change this later. Checkout https://choosealicense.com/ for more info.",
             "selector": "license"
+        },
+        "continuity":{
+            "label": "Continuity",
+            "description": "Choose a license for your mod. You can change this later. Checkout https://choosealicense.com/ for more info.",
+            "selector": "continuity"
         }
     },
 		

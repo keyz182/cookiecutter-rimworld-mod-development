@@ -5,7 +5,7 @@
 </p>
 
 # Please Remember to replace the YOUR_WORKSHOP_ITEM_ID placeholder once you upload your mod and have an id and remove this line.
-# After you've uploaded it, Rimworld will add a PublishedFileId.txt in your About.xml, remeber to commit it!
+# After you've uploaded it, Rimworld will add a PublishedFileId.txt in your About.xml, remember to commit it!
 # When making your Steam Workshop description you may find the [Text formatting reference sheet](https://steamcommunity.com/comment/Recommendation/formattinghelp) useful
 
 # Example Steam Workshop Template
@@ -36,3 +36,6 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 ## Thanks
 * Ludeon for the Game
 * Marnador for the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf)
+
+## Continuity
+See [CONTINUITY.md](CONTINUITY.md) for details on continuity and succession of this project in the event of my death or long-term absence.
