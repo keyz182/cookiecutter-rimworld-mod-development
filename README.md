@@ -15,7 +15,7 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 
 
 # Install/Setup
-### Windows Command Prompt
+### Usage from Windows Command Prompt
 ##### Required Programs
 - [git](https://git-scm.com/downloads)
 - [python](https://www.python.org/downloads/)
@@ -28,7 +28,7 @@ A cookiecutter project that builds the basic Rimworld mod development file struc
 3. Open the folder you just created and double-click the `ModName.sln` file
 4. In the Solution Explorer view on the right, right click `RimWorldWin` and click `Set as Startup Project`
     
-### Microsoft Visual Studio Integration
+### Usage from Microsoft Visual Studio
 ##### Required Programs
 
 - [Visual Studio Community](https://www.visualstudio.com/downloads/)
