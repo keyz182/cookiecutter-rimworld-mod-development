@@ -95,7 +95,7 @@
         },
         "continuity":{
             "label": "Continuity",
-            "description": "Choose a license for your mod. You can change this later. Checkout https://choosealicense.com/ for more info.",
+            "description": "Choose a continuity declaration for your mod. You can change this later. Lets you specify what should happen in the event of death or long term absence.",
             "selector": "continuity"
         }
     },
