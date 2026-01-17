@@ -73,6 +73,6 @@
   <ItemGroup>
         <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
     <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
-    <CommonFiles Include="../../../Common/**" /> {%if(cookiecutter.compat != 'n')%}<CompatibilityFiles Include="../../../Compatibility/**" /> {%endif%} <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md{%if(cookiecutter.continuity != 'None')%};../../../CONTINUITY.md{%endif%}" />
+    <CommonFiles Include="../../../Common/**" /> {%if(cookiecutter.compat != 'n')%}<CompatibilityFiles Include="../../../Compatibility/**" /> {%endif%} <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md{%if(cookiecutter.continuity != 'None')%};../../../CONTINUITY.md{%endif%}" />
     </ItemGroup>
 </Project>
