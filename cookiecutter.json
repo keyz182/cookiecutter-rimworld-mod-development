@@ -1,26 +1,21 @@
 {
-	"dummy":"Okay!",
     "mod_name": "Example Mod",
     "author": "MySteamUsername",
     "in_game_description": "A short mod description.",
     "mod_ver": ["1.6","1.7","2.0"],
-    "create_empty_definitions": "n",
+    "create_empty_definitions": "y",
     "rw64": "y",
     "harmony": "y",
     "helloWorld": "n",
-    "settings": "n",
-    "debugLog": "n",
+    "settings": "y",
+    "debugLog": "y",
     "rider": "y",
-    "compat": "n",
+    "compat": "y",
     "defOf": "y",
-    "copyToSteam": "y",
     "license": ["MIT", "CC-BY", "Other", "None"],
     "continuity": ["Nominee", "None"],
     
     "_visual_studio": {
-        "dummy": {
-            "label": "\"Create To\" should be RimWorld/Mods"
-        },
         "mod_name": {
             "label": "Mod name",
             "description": "The name of your mod and the assembly (cannot easily change later)"
@@ -83,11 +78,6 @@
             "description": "Creates a DefOf class for your mod, so you can use DefOfs in your code, like MyDefOf.Something.",
             "selector": "yesno"
         },
-        "copyToSteam":{
-            "label": "Copy release to Steam local mods folder",
-            "description": "Copy release to Steam local mods folder if RIMWORLD_STEAM_MODS_PATH env var is set.",
-            "selector": "yesno"
-        },
         "license":{
             "label": "License",
             "description": "Choose a license for your mod. You can change this later. Checkout https://choosealicense.com/ for more info.",
@@ -99,31 +89,4 @@
             "selector": "continuity"
         }
     },
-		
-    "_visual_studio_post_cmds": [
-        {
-            "name": "Tools.Shell",
-            "args": [
-              "MsBuild.exe",
-              "{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
-              "/t:Build",
-              "/p:Configuration=Release",
-              "/verbosity:minimal"
-            ]
-        },
-        {
-            "name": "Tools.Shell",
-            "args": [
-              "MsBuild.exe",
-              "{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln",
-              "/t:Build",
-              "/p:Configuration=Debug",
-              "/verbosity:minimal"
-            ]
-        },
-        {
-            "name": "File.OpenProject",
-            "args": ["{{cookiecutter._output_folder_path}}\\{{cookiecutter.mod_name}}\\{{cookiecutter.mod_name}}.sln"]
-        }
-	]
 }
