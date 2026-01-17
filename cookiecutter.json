@@ -14,7 +14,6 @@
     "defOf": "y",
     "license": ["MIT", "CC-BY", "Other", "None"],
     "continuity": ["Nominee", "None"],
-    
     "_visual_studio": {
         "mod_name": {
             "label": "Mod name",
@@ -88,5 +87,5 @@
             "description": "Choose a continuity declaration for your mod. You can change this later. Lets you specify what should happen in the event of death or long term absence.",
             "selector": "continuity"
         }
-    },
+    }
 }
